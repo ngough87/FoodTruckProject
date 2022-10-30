@@ -1,7 +1,7 @@
 # Food Truck App Project
 
 ## Description
-The Food Truck App allows users to enter and rate a list of food trucks. 
+This project was completed following week two in the Java Full stack bootcamp. The Food Truck App allows users to enter and rate a list of food trucks. 
 They can enter up to 5 trucks that will be stored. The user will then be 
 prompted with a menu to compare the trucks. They can choose between four options:
 list of the foodtrucks, average rating, highest rating, and exit the program. 
