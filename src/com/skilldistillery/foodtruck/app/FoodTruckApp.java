@@ -8,15 +8,15 @@ import com.skilldistillery.foodtruck.entities.FoodTruck;
 
 
 public class FoodTruckApp {
-	public Scanner userInput = new Scanner(System.in);
 	
+	public Scanner userInput = new Scanner(System.in);
 	public static void main(String[] args) {
 		
 		
 		FoodTruckApp list = new FoodTruckApp();
 		FoodTruck[] trucks = new FoodTruck[5];
 		
-		list.run(trucks);	//method to run FoodTruckApp
+		list.run(trucks);	
 	}
 
 	
@@ -44,7 +44,7 @@ public class FoodTruckApp {
 			
 			System.out.println("Enter food truck type: ");
 			String foodType = userInput.next();
-			System.out.println("Enter food truck rating (scale of 1 to 5) : ");
+			System.out.println("Enter food truck rating: ");
 			int rating = userInput.nextInt();
 				
 		trucks[i] = new FoodTruck (name, foodType, rating, counter);
@@ -80,13 +80,15 @@ public class FoodTruckApp {
 			if (trucks[0] == null) {
 				quitProgram();
 			} else {
-				System.out.println("1. List all existing food trucks");
-				System.out.println("2. See average rating of food trucks");
-				System.out.println("3. Display highest rating of food trucks");
-				System.out.println("4. Exit the program");
-				int record = userInput.nextInt();
+				System.out.println("\n ############  Food Truck Menu   ##############");
+				System.out.println("\t1. List all existing food trucks"          );
+				System.out.println("\t2. See average rating of food trucks"      );
+				System.out.println("\t3. See highest rating of food trucks"  );
+				System.out.println("\t4. Exit the program"                 	   );
+				System.out.println(" #############################################");
+				int options = userInput.nextInt();
 				
-				switch (record) {
+				switch (options) {
 				default: 
 					System.out.println("That is not an option. Try again. ");
 					showFoodTruckList(trucks);
@@ -119,31 +121,30 @@ public class FoodTruckApp {
 			showFoodTruckList(trucks);
 		}
 		public void avgRating(FoodTruck[] trucks) { //calculating average
-			double avg = 0;
+			int counter = 0;
 			double total = 0;
-			double num = 0;
+			double avg =0;
 			for (int i = 0; i < trucks.length; i++) {
-				if(trucks[i] != null) {
-					total += trucks[i].getRating();
-					num = i  + 1;
-
+			if(trucks[i] != null) {
+				counter = i  + 1;
+					total +=trucks[i].getRating();
 				}
-				avg = total/num;
+				avg = total/counter;
 				
 			}
 			System.out.println("Average rating: " + avg);
 			showFoodTruckList(trucks);
-		}	
+		}
 
 
 		public void highestRating(FoodTruck[] trucks) { // determining the highest score
-			int scores = trucks[0].getRating();
 			int num1 = 0;
+			int scores = trucks[0].getRating();
 			for (int i = 0; i <trucks.length; i++) {
 				if(trucks[i] != null) {
 					if(trucks[i].getRating() > scores) {
-						scores = trucks[i].getRating();
 						num1 =1;
+						scores = trucks[i].getRating();
 					}
 				}
 			}
